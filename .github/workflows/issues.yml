@@ -1,10 +1,12 @@
 name: New issues
-on: issues
+on: 
+  issues:
+    opened
 jobs:
-  test:
+  new-issue:
     runs-on: ubuntu-latest
     steps:
       - name: Output issue
         run: |
           echo "Issue title - ${{ toJSON(github.event.issue.title) }}"
-          echo "Issue description - ${{ toJSON(github.event.issue.description) }}"
+          echo "Issue description - ${{ toJSON(github.event.issue.body) }}"
